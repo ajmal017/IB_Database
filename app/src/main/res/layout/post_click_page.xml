@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}"
+    android:background="#E0E0E0">
+
+    <!-- A RecyclerView with some commonly used attributes -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_title"
+                android:textSize="25sp"
+                android:text="@string/post_title" />
+
+            <TextView
+                android:id="@+id/post_title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#efebe9"
+                android:text="title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_desc"
+                android:textSize="25sp"
+                android:text="@string/post_desc" />
+
+            <TextView
+                android:id="@+id/post_desc1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_weight="9"
+                android:background="#efebe9"
+                android:textIsSelectable="false"
+                android:text="desc" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_title"
+                android:textSize="25sp"
+                android:text="Contact Details:" />
+
+            <TextView
+                android:id="@+id/contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#efebe9"
+                android:text="Name" />
+            <TextView
+                android:id="@+id/contact_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:onClick="onClick"
+                android:background="#efebe9"
+                android:text="Phone"
+                android:textColor="#0B0080" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Details:"
+                android:id="@+id/textView17"
+                android:typeface="serif"
+                android:textSize="25sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:id="@+id/textView12"
+                android:layout_weight="1"
+                android:typeface="serif"
+                android:textSize="25sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:id="@+id/textView13"
+                android:layout_weight="1"
+                android:typeface="serif"
+                android:textSize="25sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:id="@+id/textView16"
+                android:layout_weight="1"
+                android:typeface="serif"
+                android:textSize="25sp"
+                android:gravity="center" />
+        </LinearLayout>
+        <ListView
+            android:id="@+id/post_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#efebe9">
+        </ListView>
+    </LinearLayout>
+    </RelativeLayout>

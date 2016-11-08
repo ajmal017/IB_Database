@@ -1,10 +1,20 @@
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ib.database.DashboardActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="com.example.sqlitesample.MainActivity" >
+
+<!--<item
+    android:id="@+id/add_record"
+
+    android:orderInCategory="100"
+    android:title="@string/add_record"
+    app:showAsAction="always"/>
+<item
+    android:id="@+id/export_records"
+
+    android:orderInCategory="100"
+    android:title="@string/export_records"
+    app:showAsAction="always"/>-->
+
 </menu>

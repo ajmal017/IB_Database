@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0E0E0">
+    <!--xmlns="http://schemas.android.com/apk/res-auto"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="wishlist"
+            android:id="@+id/wish_button"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:layout_weight="1"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Posts"
+            android:id="@+id/my_post"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Profile"
+            android:id="@+id/prof_button"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onClick"
+            android:layout_weight="1"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:id="@+id/logout_button"
+            android:onClick="onClick"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/main_layout"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Event List"
+                android:id="@+id/textView3"
+                android:typeface="serif"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:background="@color/ListviewColor"
+                android:gravity="center" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/event_listView"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="@android:color/transparent">
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Buy"
+                android:id="@+id/buy_button"
+                android:onClick="onClick"
+                android:textSize="30sp"
+                android:background="@drawable/rounded_buttons1"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:textColor="#ffffff" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Sell"
+                android:id="@+id/sell_button"
+                android:textSize="30sp"
+                android:background="@drawable/rounded_buttons1"
+                android:layout_alignTop="@+id/buy_button"
+                android:layout_alignParentEnd="true"
+                android:onClick="onClick"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <!--LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="New \nDeals"
+                android:id="@+id/new_text"
+                android:background="@drawable/rounded_text"
+                android:textSize="30sp"
+                android:layout_alignTop="@+id/hot_text"
+                android:layout_alignEnd="@+id/sell_button"
+                android:onClick="onClick"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Hot \nDeals"
+                android:id="@+id/hot_text"
+                android:background="@drawable/rounded_text"
+                android:textSize="30sp"
+                android:layout_below="@+id/buy_button"
+                android:layout_alignEnd="@+id/buy_button"
+                android:onClick="onClick"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
+        </LinearLayout-->
+
+        <!-- Floating Action Button-->
+        <!--<android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_location_found"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+             />-->
+    </LinearLayout>
+
+</LinearLayout>

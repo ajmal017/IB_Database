@@ -1,21 +1,73 @@
 <resources>
-    <string name="app_name">IB_Database</string>
+    <string name="app_name">Investment Bank</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings related to LoginActivity -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_enter_username">Please Enter Your Username</string>
+    <string name="error_enter_password">Please Enter Your Password</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <!-- Strings related to LoginActivity -->
     <string name="prompt_username">Username</string>
+
+    <string-array name="query_array">
+        <item>Books</item>
+        <item>Smart Phone</item>
+        <item>Car</item>
+        <item>Furniture</item>
+        <item>Others</item>
+    </string-array>
+
     <string name="login">Log In</string>
-    <string name="title_activity_dashboard">DashboardActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="sell_post">New Post</string>
+    <string name="sell_title">Title:</string>
+    <string name="sell_category">Category:</string>
+    <string name="sell_desc">Description:</string>
+    <string name="to_mainpage">Go Back to Main Page</string>
+    <string name="next">Next</string>
+    <string name="post">Post</string>
+    <string name="error_title">Please Enter Title</string>
+    <string name="error_category">Please Enter Category</string>
+    <string name="error_desc">Please Enter Description</string>
+    <string name="st_name">Student Name</string>
+    <string name="post_title">Post Title:</string>
+    <string name="post_desc">Post Description:</string>
+
+
+    <string name="seller_name">Seller Name</string>
+    <string name="goback">Go Back</string>
+    <string name="add_wishlist">Add to Wishlist</string>
+
+    <string name="enter_name">Enter Name</string>
+    <string name="add_record">Add Record</string>
+    <string name="export_records">Export To Excel</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_delete">Delete</string>
+    <string name="empty_list_text">No records found</string>
+    <string name="enter_desc">Note</string>
+    <string name="enter_title">Title</string>
+    <string name="title_activity_post_page">post_page</string>
+
+
+
+
+
+
+    <string name="Profile">profile</string>
+    <string name="prompt_email_msg">Please Enter Your Email</string>
+    <string name="Submit">submit</string>
+    <string name="one">Chandan</string>
+
+
+    <string name="add_to_wishlist">Add this item to your Wishlist?</string>
+    <string name="enter_item_name">Please Enter Item Name</string>
+    <string name="update">Select Action to be performed with this item</string>
+
+
 </resources>
