@@ -40,7 +40,7 @@ public class MajorList extends AppCompatActivity implements RecyclerViewClickLis
         setContentView(R.layout.test);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        //Toast.makeText(this,"Click on an item to add to WishList" , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"Click on an item to add to Favorite" , Toast.LENGTH_SHORT).show();
         title =(TextView) this.findViewById(R.id.title);
         desc=(TextView) this.findViewById(R.id.desc);
 

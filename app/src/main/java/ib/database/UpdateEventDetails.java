@@ -10,8 +10,9 @@ import android.widget.Toast;
 import ib.database.constant.SQLCommand;
 import ib.database.util.DBOperator;
 
+
 /**
- * Created by Anurag on 3/27/2016.
+ * Created by Chen on 11/6/2016.
  */
 public class UpdateEventDetails extends AppCompatActivity implements View.OnClickListener {
 

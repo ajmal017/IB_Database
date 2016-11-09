@@ -15,8 +15,9 @@ import ib.database.constant.SQLCommand;
 import ib.database.mppiechart.PieChartActivity;
 import ib.database.util.DBOperator;
 
+
 /**
- * Created by Chen on 11/7/2016.
+ * Created by Chen on 10/26/2016.
  */
 public class EventRegistation extends AppCompatActivity implements View.OnClickListener{
 

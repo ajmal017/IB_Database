@@ -3,7 +3,7 @@ package ib.database;
 import android.database.Cursor;
 
 /**
- * Created by Chen on 11/12/2016.
+ * Created by Chen on 10/26/2016.
 
  * This Code Converts a Cursor to a two dimentional String
  * Usage from calling class

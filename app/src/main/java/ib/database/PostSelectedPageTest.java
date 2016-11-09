@@ -20,7 +20,7 @@ import ib.database.constant.SQLCommand;
 import ib.database.util.DBOperator;
 
 /**
- * Created by Chen on 11/12/2016.
+ * Created by Chen on 11/7/2016.
  */
 public class PostSelectedPageTest extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,7 +56,7 @@ public class PostSelectedPageTest extends AppCompatActivity implements View.OnCl
         String value [] = new String[1];
         value [0] = post_id;
         /*
-        //Get Post Details using the PostId from ShowBuyList or MyPost
+        //Get Post Details using the PostId from ShowBuyList or History
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.getpostdetails, value);
         StringArray stringArray = new StringArray();
         String ars[][]= stringArray.toStr(cursor);
@@ -134,7 +134,7 @@ public class PostSelectedPageTest extends AppCompatActivity implements View.OnCl
             System.out.println("Logged in User ID"+LoginActivity.user_id);
 
 
-            if(ShowBuyListActivity.BLFlag==1||HotDeals1.BLFlag==1||NewDeals1.BLFlag==1||MyPost.BLFlag==1) {
+            if(ShowBuyListActivity.BLFlag==1||HotDeals1.BLFlag==1||NewDeals1.BLFlag==1|| History.BLFlag==1) {
                 if (post_user_id.equals(LoginActivity.user_id)) {
                     //UpdatePost(view, item_id);
                     UpdatePost(item_id);
@@ -151,7 +151,7 @@ public class PostSelectedPageTest extends AppCompatActivity implements View.OnCl
             }
             else
             {
-                Toast.makeText(PostSelectedPageTest.this, item_name + "already exists in your wishlist", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostSelectedPageTest.this, item_name + "already exists in your favorite", Toast.LENGTH_SHORT).show();
             }
            /* String getwishid= SQLCommand.getwishid;
             String userid[] = new String[1];

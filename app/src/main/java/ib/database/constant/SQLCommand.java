@@ -1,8 +1,9 @@
 package ib.database.constant;
 
 /**
- * Created by chen on 11/7/16.
+ * Created by chen on 11/4/16.
  */
+
 
 /**
  * SQL commands
@@ -91,7 +92,7 @@ public abstract class SQLCommand
     public static String showprofile = "SELECT user_first_name, user_last_name,user_pass,user_email,user_phone FROM USER WHERE user_id=?";
     public static String updateprofile = "UPDATE USER SET user_first_name=?, user_last_name=?,user_email=?,user_pass=?,user_phone=? WHERE user_id=?";
 
-    //WishList Queries
+    //Favorite Queries
     public static String getwishlist = "SELECT wish_id FROM WISHLIST WHERE user_id=?";
     public static String showwishlist = "SELECT ITEM.item_id AS _id, item_name, item_price FROM ITEM,WISHLISTDETAILS WHERE WISHLISTDETAILS.item_id=ITEM.item_id AND WISHLISTDETAILS.user_id=?";
 
@@ -139,7 +140,7 @@ public abstract class SQLCommand
     //UpdateEventDetails
     public static String updateEventDetails = "UPDATE EVENT SET event_title=?,event_desc=? WHERE event_id=?";
 
-    //MyPost
+    //History
     public static String mypostlist = "SELECT POST.post_id as _id, user_first_name, user_last_name, user_phone, post_title, post_desc FROM POST, USER WHERE USER.user_id==POST.user_id AND USER.user_id=?";
 
 

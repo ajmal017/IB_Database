@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import ib.database.piechart.PieHelper;
 import ib.database.piechart.PieView;
 
+
 /**
- * Created by Anurag on 12/1/2016.
+ * Created by Chen on 11/6/2016.
  */
 public class PieActivity extends AppCompatActivity {
     private TextView textView;

@@ -7,8 +7,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+
 /**
- * Created by Chen on 11/21/2016.
+ * Created by Chen on 10/26/2016.
  */
 public class SellPage extends AppCompatActivity {
 

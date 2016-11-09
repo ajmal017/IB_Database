@@ -12,7 +12,7 @@ import ib.database.constant.SQLCommand;
 import ib.database.util.DBOperator;
 
 /**
- * Created by Chen on 12/1/2016.
+ * Created by Chen on 10/26/2016.
  */
 
 public class ProfilePage extends AppCompatActivity implements View.OnClickListener {

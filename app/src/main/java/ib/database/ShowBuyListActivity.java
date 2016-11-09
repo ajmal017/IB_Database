@@ -1,5 +1,8 @@
 package ib.database;
 
+/**
+ * Created by Chen on 10/26/2016.
+ */
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;

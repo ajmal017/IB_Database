@@ -13,7 +13,8 @@
         android:id="@+id/textView"
         android:layout_gravity="top|left"
         android:textSize="40sp"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        tools:text="New Trade" />
 
     <LinearLayout
         android:orientation="horizontal"

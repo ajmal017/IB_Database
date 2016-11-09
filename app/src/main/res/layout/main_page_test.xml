@@ -15,7 +15,7 @@
         <android.support.v7.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="wishlist"
+            android:text="FAVORITE"
             android:id="@+id/wish_button"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
@@ -29,7 +29,7 @@
         <android.support.v7.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Posts"
+            android:text="HISTORY"
             android:id="@+id/my_post"
             android:layout_weight="1"
             android:onClick="onClick"
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Event List"
+                android:text="Recent Trades"
                 android:id="@+id/textView3"
                 android:typeface="serif"
                 android:textStyle="bold"

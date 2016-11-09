@@ -15,7 +15,7 @@ import ib.database.constant.SQLCommand;
 import ib.database.util.DBOperator;
 
 /**
- * Created by Chen on 11/6/2016.
+ * Created by Chen on 10/26/2016.
  */
 public class DashboardActivity extends AppCompatActivity {
 
@@ -109,12 +109,12 @@ public class DashboardActivity extends AppCompatActivity {
             this.startActivity(intent);
         }*/
         if(view.getId()==R.id.wish_button){
-            Intent intent = new Intent(this, WishList.class);
+            Intent intent = new Intent(this, Favorite.class);
             this.startActivity(intent);
 
         }
         if(view.getId()==R.id.my_post){
-            Intent intent = new Intent(this, MyPost.class);
+            Intent intent = new Intent(this, History.class);
             this.startActivity(intent);
         }
         if(view.getId()==R.id.prof_button){

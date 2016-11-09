@@ -1,5 +1,9 @@
 package ib.database;
 
+/**
+ * Created by Chen on 10/26/2016.
+ */
+
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
