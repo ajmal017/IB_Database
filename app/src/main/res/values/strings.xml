@@ -68,6 +68,18 @@
     <string name="add_to_wishlist">Add this item to your Wishlist?</string>
     <string name="enter_item_name">Please Enter Item Name</string>
     <string name="update">Select Action to be performed with this item</string>
+    <string name="account">Account Details</string>
+    <string name="account_cash">Cash Account</string>
+    <string name="account_stock">Stock Account</string>
+    <string name="check_btn">CHECK STOCK</string>
+    <string name="master_stock">MASTER STOCK LIST</string>
+    <string name="mstk_id">MASTER STOCK ID</string>
+    <string name="mstkname">MASTER STOCK NAME</string>
+    <string name="mstkprice">STOCK PRICE</string>
+
+
+
+
 
 
 </resources>

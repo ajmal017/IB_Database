@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="submit_btn" type="id">SUBMIT</item>
+    <item name="cash_account" type="id">Cash Account Number</item>
+    <item name="cash_balance" type="id">Available Balance</item>
+    <item name="master_stock" type="id">MASTER STOCK LIST</item>
+</resources>

@@ -142,7 +142,7 @@ public abstract class SQLCommand
 
     //History
     public static String mypostlist = "SELECT POST.post_id as _id, user_first_name, user_last_name, user_phone, post_title, post_desc FROM POST, USER WHERE USER.user_id==POST.user_id AND USER.user_id=?";
-
+    public static String MASTER_STOCK="select mstk_id,mstkname,mstkprice from MASTER_STOCK";
 
 
 }
