@@ -24,9 +24,9 @@ public class SellPage extends AppCompatActivity {
 
         overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
 
-        et1 = (EditText) this.findViewById(R.id.editText1);
+        /*et1 = (EditText) this.findViewById(R.id.editText1);
 
-        et3 = (EditText) this.findViewById(R.id.editText3);
+        et3 = (EditText) this.findViewById(R.id.editText3);*/
     }
     public void onClick(View view)
     {
@@ -38,7 +38,8 @@ public class SellPage extends AppCompatActivity {
             finish();
         }
 
-        if (id==R.id.button2) {
+        /*if (id==R.id.button2) */
+        {
 
         et1.setError(null);
         //et2.setError(null);

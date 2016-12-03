@@ -31,9 +31,9 @@ public class MajorMyAdapter extends RecyclerView.Adapter<MajorMyAdapter.ViewHold
 
         public ViewHolder(View v) {
             super(v);
-            post_name = (TextView) v.findViewById(R.id.item_name);
+            post_name = (TextView) v.findViewById(R.id.Favstock_name);
             desc = (TextView) v.findViewById(R.id.item_desc);
-            price = (TextView) v.findViewById(R.id.item_price);
+            price = (TextView) v.findViewById(R.id.Favstock_price);
             test=(LinearLayout) v.findViewById(R.id.test);
 
         }

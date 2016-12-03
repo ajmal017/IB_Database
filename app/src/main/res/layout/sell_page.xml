@@ -3,77 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SellPage"
+    tools:context=".ShowBuyListActivity"
     android:background="#E0E0E0">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sell_post"
-        android:id="@+id/textView"
-        android:layout_gravity="top|left"
-        android:textSize="40sp"
-        android:textIsSelectable="false"
-        tools:text="New Trade" />
+        android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <EditText
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText1"
-            android:hint="@string/sell_title"/>
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spinner1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Sort"
+                android:layout_weight="1"
+                android:id="@+id/sortbtn1"
+                android:onClick="onClick"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Clear"
+                android:layout_weight="1"
+                android:id="@+id/clrbtn1"
+                android:onClick="onClick"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <EditText
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/ListviewColor"
+        android:paddingTop="5dp"
+        android:weightSum="1">
+
+        <ListView
+            android:id="@+id/sell_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:hint="@string/sell_desc"
-            android:inputType="textMultiLine"
-            android:minLines="5"
-            android:gravity="top|left" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="299dp"
+            android:scrollingCache="true"
+            android:smoothScrollbar="true"
+            android:layout_weight="8.10">
+        </ListView>
+
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
-
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Item"
-            android:id="@+id/button2"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="onClick" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/to_mainpage"
-            android:id="@+id/home"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onClick" />
-    </RelativeLayout>
+    <Button
+        android:text="@string/callMngrbtn"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/callMngrbtn"
+        />
 
 </LinearLayout>

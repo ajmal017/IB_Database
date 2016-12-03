@@ -27,7 +27,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_title"
+                android:id="@+id/stock_name"
                 android:hint="Event Title"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -42,7 +42,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_desc"
+                android:id="@+id/trade_date"
                 android:hint="Event Description"/>
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>

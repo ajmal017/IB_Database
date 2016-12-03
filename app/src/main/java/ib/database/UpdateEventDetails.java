@@ -28,8 +28,8 @@ public class UpdateEventDetails extends AppCompatActivity implements View.OnClic
 
         overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
 
-        event_title1 = (EditText) this.findViewById(R.id.event_title);
-        event_desc1 = (EditText) this.findViewById(R.id.event_desc);
+        event_title1 = (EditText) this.findViewById(R.id.stock_name);
+        event_desc1 = (EditText) this.findViewById(R.id.trade_date);
 
 
         Intent intent = this.getIntent();

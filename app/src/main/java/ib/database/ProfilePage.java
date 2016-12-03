@@ -20,7 +20,7 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
     private EditText profile_firstname;
     private EditText profile_lastname;
     private EditText profile_email;
-    private EditText profile_phone;
+    private EditText profile_DOB;
     private EditText profile_pass;
     private Button update;
 
@@ -36,7 +36,7 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         profile_firstname=(EditText) this.findViewById(R.id.profile_firstname);
         profile_lastname=(EditText) this.findViewById(R.id.profile_lastname);
         profile_email=(EditText) this.findViewById(R.id.profile_email);
-        profile_phone=(EditText) this.findViewById(R.id.profile_phone);
+        profile_DOB =(EditText) this.findViewById(R.id.profile_DOB);
         profile_pass=(EditText) this.findViewById(R.id.profile_pass);
 
         String [] value= new String[1];
@@ -51,12 +51,12 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         String last_name=ars[0][1];
         String pass=ars[0][2];
         String email=ars[0][3];
-        String phone=ars[0][4];
+        String DOB=ars[0][4];
         profile_firstname.setText(first_name);
         profile_lastname.setText(last_name);
         profile_pass.setText(pass);
         profile_email.setText(email);
-        profile_phone.setText(phone);
+        profile_DOB.setText(DOB);
 
         update = (Button) this.findViewById(R.id.update_btn);
         update.setOnClickListener(this);
@@ -73,7 +73,7 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
             value[1]= profile_lastname.getText().toString();
             value[2]= profile_email.getText().toString();
             value[3]= profile_pass.getText().toString();
-            value[4]= profile_phone.getText().toString();
+            value[4]= profile_DOB.getText().toString();
             value[5]= LoginActivity.user_id;
 
             String sql=SQLCommand.updateprofile;

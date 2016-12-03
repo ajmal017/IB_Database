@@ -12,9 +12,9 @@ package ib.database.constant;
 public abstract class DBConstant
 {
     //database file directory
-    public static String DATABASE_PATH = "/data/ib.database/databases";
+    public static String DATABASE_PATH = "/data/data/ib.database/databases";
     //database file name
-    public static String DATABASE_FILE = "test.db";
+    public static String DATABASE_FILE = "ib.db";
     //database version
     public static int DATABASE_VERSION = 1;
 }

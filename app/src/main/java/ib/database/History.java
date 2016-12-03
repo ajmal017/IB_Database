@@ -36,8 +36,8 @@ public class History extends AppCompatActivity implements View.OnClickListener {
         String[] value= new String[1];
         value[0]= LoginActivity.user_id;
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.mypostlist, value);
-        String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        String[] from = new String[]{"stock_name","stock_price"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -64,7 +64,7 @@ public class History extends AppCompatActivity implements View.OnClickListener {
             String post_desc = cursor.getString(5);
 
             System.out.println( "Post ID = " + post_id);
-            Intent intent = new Intent(getApplicationContext(), PostSelectedPageTest.class);
+            Intent intent = new Intent(getApplicationContext(), showStockDetail.class);
             intent.putExtra("user_first_name", user_first_name);
             intent.putExtra("user_last_name", user_last_name);
             intent.putExtra("user_phone", user_phone);

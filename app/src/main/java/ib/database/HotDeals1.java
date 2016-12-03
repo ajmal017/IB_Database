@@ -44,8 +44,8 @@ public class HotDeals1 extends AppCompatActivity {
         String[] value= new String[1];
         value[0]= LoginActivity.user_id;
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showhotbuylist, value);
-        String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        String[] from = new String[]{"post_title","post_desc"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -101,8 +101,8 @@ public class HotDeals1 extends AppCompatActivity {
                 //sql = SQLCommand.QUERY_category_spinner_5;
             }
             Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.query_spinner_hot, value);
-            String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-            int[] to = new int[]{R.id.user_first_name, R.id.user_last_name, R.id.post_title, R.id.post_desc};
+            String[] from = new String[]{"post_title","post_desc"};
+            int[] to = new int[]{ R.id.Buystock_name, R.id.stock_price};
             // bind the data to list
             final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                     getApplicationContext(), R.layout.buy_listview, cursor,
@@ -114,8 +114,8 @@ public class HotDeals1 extends AppCompatActivity {
             String[] value= new String[1];
             value[0]= LoginActivity.user_id;
             Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showhotbuylist, value);
-            String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-            int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+            String[] from = new String[]{"post_title","post_desc"};
+            int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
             // bind the data to list
             final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                     getApplicationContext(), R.layout.buy_listview, cursor,
@@ -132,7 +132,7 @@ public class HotDeals1 extends AppCompatActivity {
         List<String> labels = new ArrayList<String>();
 
         // Select All Query
-        String selectQuery = SQLCommand.QUERY_category_spinner;
+        String selectQuery = SQLCommand.QUERY_market_spinner;
 
         //SQLiteDatabase db = DBOperator.copyDB(getBaseContext()).getReadableDatabase();
         Cursor cursor = DBOperator.getInstance().execQuery(selectQuery, null);
@@ -194,7 +194,7 @@ public class HotDeals1 extends AppCompatActivity {
 
             postId=post_id;
             System.out.println( "Post ID = " + postId);
-            Intent intent = new Intent(getApplicationContext(), PostSelectedPageTest.class);
+            Intent intent = new Intent(getApplicationContext(), showStockDetail.class);
             intent.putExtra("user_first_name", user_first_name);
             intent.putExtra("user_last_name", user_last_name);
             intent.putExtra("user_phone", user_phone);

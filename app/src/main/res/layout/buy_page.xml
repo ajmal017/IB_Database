@@ -59,7 +59,9 @@
 <ListView
 android:id="@+id/buy_list"
 android:layout_width="match_parent"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+    android:scrollingCache="true"
+    android:smoothScrollbar="true">
 </ListView>
 
 </LinearLayout>

@@ -36,11 +36,11 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         listView = (ListView) this.findViewById(R.id.event_listView);
-        listView.setOnItemClickListener(new ItemClickListener());
+//        listView.setOnItemClickListener(new ItemClickListener());
 
-        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showeventlist, null);
-        String[] from = new String[]{"event_title","event_desc"};
-        int[] to = new int[]{R.id.event_title, R.id.event_desc};
+        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.recent_trades, null);
+        String[] from = new String[]{"stk_name","trade_date"};
+        int[] to = new int[]{R.id.stock_name, R.id.trade_date};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.event_listview, cursor,
@@ -58,27 +58,27 @@ public class DashboardActivity extends AppCompatActivity {
 
 
 
-    private class ItemClickListener implements android.widget.AdapterView.OnItemClickListener {
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            Cursor cursor = (Cursor) listView.getItemAtPosition(position);
-            String event_id = cursor.getString(0);
-            String event_title = cursor.getString(1);
-            String event_desc = cursor.getString(2);
-
-            Intent intent = new Intent(getApplicationContext(), EventRegistation.class);
-            intent.putExtra("event_id",event_id);
-            intent.putExtra("event_title",event_title);
-            intent.putExtra("event_desc", event_desc);
-            /*View sharedView = listView;
-            String tr = "eventlist";
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, sharedView,tr);
-            startActivity(intent, options.toBundle());*/
-            startActivity(intent);
-        }
-    }
+//    private class ItemClickListener implements android.widget.AdapterView.OnItemClickListener {
+//        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//            Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+//            String trade_id = cursor.getString(0);
+//            /*String event_title = cursor.getString(1);
+//            String event_desc = cursor.getString(2);*/
+//
+//            Intent intent = new Intent(getApplicationContext(), showStockDetail.class);
+//            intent.putExtra("trade_id",trade_id);
+//            /*intent.putExtra("event_title",event_title);
+//            intent.putExtra("event_desc", event_desc);*/
+//            /*View sharedView = listView;
+//            String tr = "eventlist";
+//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, sharedView,tr);
+//            startActivity(intent, options.toBundle());*/
+//            startActivity(intent);
+//        }
+//    }
     public void onClick(View view)
     {
         //String sql="";
@@ -95,7 +95,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
         if(id==R.id.sell_button)
         {
-            Intent intent = new Intent(getApplicationContext(), SellPage.class);
+            Intent intent = new Intent(getApplicationContext(), ShowSellList.class);
             this.startActivity(intent);
         }
         /*if(id==R.id.hot_text)
@@ -113,7 +113,7 @@ public class DashboardActivity extends AppCompatActivity {
             this.startActivity(intent);
 
         }
-        if(view.getId()==R.id.my_post){
+        if(view.getId()==R.id.history){
             Intent intent = new Intent(this, History.class);
             this.startActivity(intent);
         }

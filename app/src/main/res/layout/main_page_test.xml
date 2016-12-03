@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="HISTORY"
-            android:id="@+id/my_post"
+            android:id="@+id/history"
             android:layout_weight="1"
             android:onClick="onClick"
             android:layout_marginLeft="1dp"

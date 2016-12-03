@@ -60,7 +60,7 @@ public class MajorList extends AppCompatActivity implements RecyclerViewClickLis
 
         // specify an adapter (see also next example)
         String value[]=new String[1];
-        value[0]= ShowBuyListActivity.postId;
+        value[0]= ShowBuyListActivity.stockID;
 
 
         String sql = SQLCommand.getitemdetails;

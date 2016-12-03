@@ -33,9 +33,9 @@ public class AddNewItem extends AppCompatActivity implements View.OnClickListene
 
         overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
 
-        item_name = (EditText) this.findViewById(R.id.item_name);
+        item_name = (EditText) this.findViewById(R.id.Favstock_name);
         item_qoh = (EditText) this.findViewById(R.id.item_qoh);
-        item_price = (EditText) this.findViewById(R.id.item_price);
+        item_price = (EditText) this.findViewById(R.id.Favstock_price);
         item_desc = (EditText) this.findViewById(R.id.item_desc);
 
         post = (Button) this.findViewById(R.id.post);

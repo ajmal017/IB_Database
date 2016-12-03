@@ -28,7 +28,7 @@ public class ShowBuyListActivity extends AppCompatActivity {
     private Spinner spinner;
 
     public static int BLFlag = 0;
-    public static String postId;
+    public static String stockID;
     @SuppressLint("NewApi")
     @Override
 
@@ -41,16 +41,17 @@ public class ShowBuyListActivity extends AppCompatActivity {
 
         listView = (ListView) this.findViewById(R.id.buy_list);
         listView.setOnItemClickListener(new ItemClickListener());
+//        listView.setVerticalScrollBarEnabled();
 
         // get the sql string delivered from the QueryActivity
         //Intent intent = this.getIntent();
         //String sql = intent.getStringExtra("sql");
         // execute the sql
-        String[] value= new String[1];
-        value[0]= LoginActivity.user_id;
-        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showbuylist, value);
-        String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        //String[] value= new String[1];
+        //value[0]= LoginActivity.user_id;
+        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showbuylist, null);
+        String[] from = new String[]{"stock_name","stock_price"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -72,25 +73,25 @@ public class ShowBuyListActivity extends AppCompatActivity {
     int id=v.getId();
     if(id==R.id.sortbtn)
     {
-        String[] value= new String[2];
-        value[0]= LoginActivity.user_id;
+        String[] value= new String[1];
+//        value[0]= LoginActivity.user_id;
 
         int pos = spinner.getSelectedItemPosition();
     if (pos == Spinner.INVALID_POSITION) {
         //User doesn't choose any query, show warning
-        Toast.makeText(getApplicationContext(), "Please choose a category!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Please choose a market!", Toast.LENGTH_SHORT).show();
         return;
     }
     if (pos == 0) {
-        Toast.makeText(getApplicationContext(), "Please choose a category!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Please choose a market!", Toast.LENGTH_SHORT).show();
         return;
     }
     if (pos == 1) {
         //sql = SQLCommand.QUERY_category_spinner_1;
-        value[1]="300";
+        value[0]="NASDAQ";
     }
     if (pos == 2) {
-        value[1]="301";
+        value[0]="NYSE";
         //sql = SQLCommand.QUERY_category_spinner_2;
     }
     if (pos == 3) {
@@ -106,8 +107,8 @@ public class ShowBuyListActivity extends AppCompatActivity {
         //sql = SQLCommand.QUERY_category_spinner_5;
     }
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.query_spinner, value);
-        String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name, R.id.post_title, R.id.post_desc};
+        String[] from = new String[]{"stock_name","stock_price"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -116,11 +117,11 @@ public class ShowBuyListActivity extends AppCompatActivity {
     }
     if(id==R.id.clrbtn)
     {
-        String[] value= new String[1];
-        value[0]= LoginActivity.user_id;
-        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showbuylist, value);
-        String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        //String[] value= new String[1];
+        //value[0]= LoginActivity.user_id;
+        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showbuylist);
+        String[] from = new String[]{"stock_name","stock_price"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -137,11 +138,11 @@ public class ShowBuyListActivity extends AppCompatActivity {
         List<String> labels = new ArrayList<String>();
 
         // Select All Query
-        String selectQuery = SQLCommand.QUERY_category_spinner;
+        String selectQuery = SQLCommand.QUERY_market_spinner;
 
         //SQLiteDatabase db = DBOperator.copyDB(getBaseContext()).getReadableDatabase();
         Cursor cursor = DBOperator.getInstance().execQuery(selectQuery, null);
-        labels.add(0,"Select Category");
+        labels.add(0,"Select Market");
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -173,18 +174,18 @@ public class ShowBuyListActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id)
         {
             Cursor cursor = (Cursor) listView.getItemAtPosition(position);
-            String post_id = cursor.getString(0);
-            String user_first_name = cursor.getString(1);
-            String user_last_name = cursor.getString(2);
-            String user_phone = cursor.getString(3);
-            String post_title = cursor.getString(4);
-            String post_desc = cursor.getString(5);
+            String stock_id = cursor.getString(0);
+            String stock_name = cursor.getString(1);
+            String stock_price = cursor.getString(2);
+            String industry_type = cursor.getString(3);
+            String related_market = cursor.getString(4);
+            String stock_description = cursor.getString(5);
 
             int count1;
             String [] value = new String[1];
-            value[0] = post_id;
+            value[0] = stock_id;
 
-            String getcount= SQLCommand.gethitcount;
+            /*String getcount= SQLCommand.gethitcount;
             Cursor cursor1 = DBOperator.getInstance().execQuery(getcount,value);
             StringArray stringArray = new StringArray();
             String ars[][]= stringArray.toStr(cursor1);
@@ -194,18 +195,18 @@ public class ShowBuyListActivity extends AppCompatActivity {
             String sql=SQLCommand.updatehitcount;
             String value1[]=new String[2];
             value1[0]=Integer.toString(count1);
-            value1[1]=post_id;
+            value1[1]=stock_id;
             DBOperator.getInstance().execSQL(sql,value1);
-
-            postId=post_id;
-            System.out.println( "Post ID = " + postId);
-            Intent intent = new Intent(getApplicationContext(), PostSelectedPageTest.class);
-            intent.putExtra("user_first_name", user_first_name);
-            intent.putExtra("user_last_name", user_last_name);
-            intent.putExtra("user_phone", user_phone);
-            intent.putExtra("post_title", post_title);
-            intent.putExtra("post_desc", post_desc);
-            intent.putExtra("post_id",post_id);
+*/
+            stockID =stock_id;
+            System.out.println( "Stock ID = " + stockID);
+            Intent intent = new Intent(getApplicationContext(), showStockDetail.class);
+            intent.putExtra("stock_name", stock_name);
+            intent.putExtra("stock_price", stock_price);
+            intent.putExtra("industry_type", industry_type);
+            intent.putExtra("related_market", related_market);
+            intent.putExtra("stock_description", stock_description);
+            intent.putExtra("stock_id",stock_id);
             BLFlag=1;
             startActivity(intent);
         }

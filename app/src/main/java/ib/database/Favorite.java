@@ -43,8 +43,8 @@ public class Favorite extends AppCompatActivity {
 
         String sql1= SQLCommand.showwishlist;
         Cursor cursor1 = DBOperator.getInstance().execQuery(sql1,value);
-        String[] from = new String[]{"item_name","item_price"};
-        int[] to = new int[]{R.id.item_name, R.id.item_price};
+        String[] from = new String[]{"stock_name","stock_price"};
+        int[] to = new int[]{R.id.Favstock_name, R.id.Favstock_price};
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.favorite_layout, cursor1,
                 from, to, SimpleCursorAdapter.IGNORE_ITEM_VIEW_TYPE);
@@ -74,13 +74,13 @@ public class Favorite extends AppCompatActivity {
 
 
 
-            Intent intent = new Intent(getApplicationContext(), PostSelectedPageTest.class);
-            intent.putExtra("user_first_name", user_first_name);
-            intent.putExtra("user_last_name", user_last_name);
-            intent.putExtra("user_phone", user_phone);
-            intent.putExtra("post_title", post_title);
-            intent.putExtra("post_desc", post_desc);
-            intent.putExtra("post_id",post_id);
+            Intent intent = new Intent(getApplicationContext(), showStockDetail.class);
+            intent.putExtra("stock_name", user_first_name);
+            intent.putExtra("stock_price", user_last_name);
+            intent.putExtra("industry_type", user_phone);
+            intent.putExtra("related_market", post_title);
+            intent.putExtra("stock_description", post_desc);
+
             startActivity(intent);
 
         }

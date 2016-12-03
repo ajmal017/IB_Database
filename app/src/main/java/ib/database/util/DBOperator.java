@@ -77,7 +77,7 @@ public class DBOperator {
         String query = SQLCommand.logincheck;
         //System.out.println("QUERY "+query);
         //db.execSQL(query);
-        Cursor cursor_2 = db.query("USER", new String[] {"user_id", "user_email", "user_pass"}, "user_email = ?", new String[]{ ""+uname+"" }, null, null, null, null);
+        Cursor cursor_2 = db.query("business_partner", new String[] {"bp_id", "bp_email", "bp_pass"}, "bp_email = ?", new String[]{ ""+uname+"" }, null, null, null, null);
 
         if (cursor_2 == null)
             return b="null";
@@ -118,7 +118,7 @@ public class DBOperator {
         //System.out.println(c);
         //return b;
 
-        System.out.println("User Pass = "+b+" User Id = "+c);
+        System.out.println("User Pass = "+b+" business_partner Id = "+c);
         return b;
     }
     /**

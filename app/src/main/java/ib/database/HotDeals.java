@@ -41,8 +41,8 @@ public class HotDeals extends AppCompatActivity {
         //String sql = intent.getStringExtra("sql");
         // execute the sql
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showhotbuylist, null);
-        String[] from = new String[]{"user_first_name","user_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        String[] from = new String[]{"post_title","post_desc"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -86,8 +86,8 @@ public void onClick(View v){
         sql = SQLCommand.QUERY_category_spinner_4;
     }
     Cursor cursor = DBOperator.getInstance().execQuery(sql, null);
-        String[] from = new String[]{"st_first_name","st_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        String[] from = new String[]{"stock_name","stock_price"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -98,8 +98,8 @@ public void onClick(View v){
     {
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.QUERY_1, null);
         // bind the data to list
-        String[] from = new String[]{"st_first_name","st_last_name","post_title","post_desc"};
-        int[] to = new int[]{R.id.user_first_name, R.id.user_last_name,R.id.post_title, R.id.post_desc};
+        String[] from = new String[]{"post_title","post_desc"};
+        int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.buy_listview, cursor,
@@ -143,7 +143,7 @@ public void onClick(View v){
         List<String> labels = new ArrayList<String>();
 
         // Select All Query
-        String selectQuery = SQLCommand.QUERY_category_spinner;
+        String selectQuery = SQLCommand.QUERY_market_spinner;
 
         //SQLiteDatabase db = DBOperator.copyDB(getBaseContext()).getReadableDatabase();
         Cursor cursor = DBOperator.getInstance().execQuery(selectQuery, null);
@@ -248,7 +248,7 @@ public void onClick(View v){
             // String cofine = cursor.getString(4);
             // String stname = cursor.getString(5);
             //Toast.makeText(getApplicationContext(),"Student Name: " + st_first_name+ "\nPost Title: " + post_title+ "\nPost Description: " + post_desc, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(getApplicationContext(), PostSelectedPageTest.class);
+            Intent intent = new Intent(getApplicationContext(), showStockDetail.class);
             intent.putExtra("user_first_name", user_first_name);
             intent.putExtra("user_last_name", user_last_name);
             intent.putExtra("post_title", post_title);

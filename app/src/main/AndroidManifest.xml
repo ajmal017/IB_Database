@@ -47,12 +47,11 @@
         <activity android:name=".AddNewItem"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".HotDeals"></activity>
-        <activity android:name=".NewDeals"></activity>
         <activity android:name=".ProfilePage"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Favorite"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".PostSelectedPageTest"
+        <activity android:name=".showStockDetail"
             android:screenOrientation="portrait"></activity>
 
         <activity android:name=".UpdateItemDetails"
@@ -73,10 +72,15 @@
         <activity android:name=".mppiechart.PieChartActivity"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".MasterStock"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".ShowStock"
             android:label="@string/app_name" >
         </activity>
-
+        <activity android:name=".ShowSellList"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 

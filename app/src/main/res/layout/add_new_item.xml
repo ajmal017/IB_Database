@@ -27,7 +27,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/item_name"
+                android:id="@+id/Favstock_name"
                 android:hint="Item Name"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -58,7 +58,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/item_price"
+                android:id="@+id/Favstock_price"
                 android:hint="Price"
                 android:inputType="number" />
         </android.support.design.widget.TextInputLayout>

@@ -34,8 +34,8 @@ public class PostPage extends AppCompatActivity {
         //dbController = new SQLController(this);
         //dbController.open();
 
-        post_title = (TextView) findViewById(R.id.post_title);
-        post_desc = (TextView) findViewById(R.id.post_desc);
+        post_title = (TextView) findViewById(R.id.Buystock_name);
+        post_desc = (TextView) findViewById(R.id.stock_price);
         st_first_name = (TextView) findViewById(R.id.st_first_name);
 
         Intent intent = this.getIntent();
@@ -85,7 +85,7 @@ public class PostPage extends AppCompatActivity {
             cursor.moveToFirst();*/
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.QUERY_display_items, post_id);
         String[] from = new String[]{"item_name","item_desc","item_price"};
-        int[] to = new int[]{R.id.item_name, R.id.item_desc,R.id.item_price};
+        int[] to = new int[]{R.id.Favstock_name, R.id.item_desc,R.id.Favstock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.listitem_itempage, cursor,
