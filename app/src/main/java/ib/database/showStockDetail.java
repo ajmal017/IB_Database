@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import ib.database.constant.SQLCommand;
 import ib.database.util.DBOperator;
 
+import static ib.database.R.id.editText;
 import static ib.database.R.id.showDesc;
 
 /**
@@ -31,7 +33,8 @@ public class showStockDetail extends AppCompatActivity
     private String item_name;
     private TextView showName, showPrice, showIndustry, showMarket, showDesc;
     private String stock_name, stock_price, industry_type, related_market, stock_description, stock_id;
-    private static Integer contactnotif=0;
+    private Button Updatebtn, AddtoWishBtn;
+    private static Integer contactnotif = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         System.gc();
@@ -42,23 +45,25 @@ public class showStockDetail extends AppCompatActivity
 
         /*listView = (ListView) this.findViewById(R.id.post_details);
         listView.setOnItemClickListener(new ItemClickListener());*/
-        showName =(TextView) this.findViewById(R.id.showName);
-        showPrice =(TextView) this.findViewById(R.id.showPrice);
-        showIndustry =(TextView) this.findViewById(R.id.showIndustry);
-        showMarket =(TextView) this.findViewById(R.id.showMarket);
+        showName = (TextView) this.findViewById(R.id.showName);
+        showPrice = (TextView) this.findViewById(R.id.showPrice);
+        showIndustry = (TextView) this.findViewById(R.id.showIndustry);
+        showMarket = (TextView) this.findViewById(R.id.showMarket);
         showDesc = (TextView) this.findViewById(R.id.showDesc);
+        Updatebtn = (Button) this.findViewById(R.id.button2);
+        AddtoWishBtn = (Button) this.findViewById(R.id.button3);
 
 
         Intent intent = this.getIntent();
-        stock_name =  intent.getStringExtra("stock_name");
-        stock_price =  intent.getStringExtra("stock_price");
-        industry_type =  intent.getStringExtra("industry_type");
-        related_market =  intent.getStringExtra("related_market");
-        stock_description =  intent.getStringExtra("stock_description");
-        stock_id =  intent.getStringExtra("stock_id");
+        stock_name = intent.getStringExtra("stock_name");
+        stock_price = intent.getStringExtra("stock_price");
+        industry_type = intent.getStringExtra("industry_type");
+        related_market = intent.getStringExtra("related_market");
+        stock_description = intent.getStringExtra("stock_description");
+        stock_id = intent.getStringExtra("stock_id");
 
-        String value [] = new String[1];
-        value [0] = stock_id;
+        String value[] = new String[1];
+        value[0] = stock_id;
         /*
         //Get Post Details using the PostId from ShowBuyList or History
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.getpostdetails, value);
@@ -76,8 +81,46 @@ public class showStockDetail extends AppCompatActivity
         showDesc.setText(stock_description);
 
 
+        if (ShowBuyListActivity.BLFlag == 1) {
+            //UpdatePost(view, item_id);
+//            AddtoWishlistDialog(item_id);
+            ShowBuyListActivity.BLFlag = 0;
+            ShowSellList.BLFlag=0;
+            AddtoWishBtn.setVisibility(View.VISIBLE);
 
-        //Get Item Details and Display them
+        } else if (ShowSellList.BLFlag == 1) {
+            ShowSellList.BLFlag = 0;
+            ShowBuyListActivity.BLFlag=0;
+            AddtoWishBtn.setVisibility(View.GONE);
+        }
+    }
+
+
+
+
+    public void onClick(View v) {
+        int id=v.getId();
+        if(id==R.id.button2)
+        {
+            String value[]=new String[1];
+            value[0]= editText.getText().toString();
+
+
+            String sql=SQLCommand.buy;
+            System.out.println(sql);
+            DBOperator.getInstance().execSQL(sql, value);
+            Toast.makeText(getApplicationContext(),"Buying Updated", Toast.LENGTH_SHORT).show();
+        }
+        else if (id==R.id.button3)
+    }
+
+
+
+
+
+
+
+    //Get Item Details and Display them
         /*Cursor cursor2 = DBOperator.getInstance().execQuery(SQLCommand.getitemdetails, value);
         String[] from = new String[]{"item_name","item_desc","item_price"};
         int[] to = new int[]{R.id.Favstock_name, R.id.item_desc,R.id.Favstock_price};
@@ -94,7 +137,7 @@ public class showStockDetail extends AppCompatActivity
             contactnotif = 1;
         }*/
 
-    }
+}
 
     /*@Override
     public void onClick(View v) {
@@ -140,21 +183,8 @@ public class showStockDetail extends AppCompatActivity
 //            System.out.println("Logged in User ID"+LoginActivity.user_id);
 //
 //
-//            if(ShowBuyListActivity.BLFlag==1||HotDeals1.BLFlag==1||NewDeals1.BLFlag==1|| History.BLFlag==1) {
-//                if (post_user_id.equals(LoginActivity.user_id)) {
-//                    //UpdatePost(view, item_id);
-//                    UpdatePost(item_id);
-//                    ShowBuyListActivity.BLFlag=0;
-//                    HotDeals1.BLFlag=0;
-//                    NewDeals1.BLFlag=0;
+
 //
-//                } else {
-//                    AddtoWishlistDialog(item_id);
-//                    ShowBuyListActivity.BLFlag=0;
-//                    HotDeals1.BLFlag=0;
-//                    NewDeals1.BLFlag=0;
-//                }
-//            }
 //            else
 //            {
 //                Toast.makeText(showStockDetail.this, item_name + "already exists in your favorite", Toast.LENGTH_SHORT).show();
@@ -273,4 +303,4 @@ public class showStockDetail extends AppCompatActivity
 //        overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
 //    }
 
-}
+
