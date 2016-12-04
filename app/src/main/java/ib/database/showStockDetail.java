@@ -103,7 +103,7 @@ public class showStockDetail extends AppCompatActivity
         if(id==R.id.button2)
         {
             String value[]=new String[1];
-            value[0]= editText.getText().toString();
+//            value[0]= editText.getText().toString();
 
 
             String sql=SQLCommand.buy;
@@ -111,7 +111,7 @@ public class showStockDetail extends AppCompatActivity
             DBOperator.getInstance().execSQL(sql, value);
             Toast.makeText(getApplicationContext(),"Buying Updated", Toast.LENGTH_SHORT).show();
         }
-        else if (id==R.id.button3)
+        else if (id==R.id.button3){}
     }
 
 

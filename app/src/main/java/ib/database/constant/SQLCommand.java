@@ -79,13 +79,16 @@ public abstract class SQLCommand
     //ShowSellList Queries
     public static String showselllist = "select master_stock.stock_id as _id, stock_name, stock_price, stk_quantity, industry_type, related_market, stock_description from stock_account,master_stock,trade,trade_detail,account,business_partner where stock_account.stk_acc_id=trade.stk_acc_id and trade.trade_id=trade_detail.trade_id and trade_detail.stock_id=master_stock.stock_id and stock_account.acc_id=account.acc_id and account.bp_id=business_partner.bp_id and business_partner.bp_id=?";
     public static String sellquery_spinner = "select master_stock.stock_id as _id, stock_name, stock_price, stk_quantity, industry_type, related_market, stock_description from stock_account,master_stock,trade,trade_detail,account,business_partner where stock_account.stk_acc_id=trade.stk_acc_id and trade.trade_id=trade_detail.trade_id and trade_detail.stock_id=master_stock.stock_id and stock_account.acc_id=account.acc_id and account.bp_id=business_partner.bp_id and business_partner.bp_id=? and related_market=?";
+    public static String callMgr = "Select m_id as _id, m_phone FROM manager where bp_id=?";
+
     //ShowStockDetail Queries
     public static String buy = "UPDATE stock_account SET stk_quantity=? WHERE stk_name=? AND acc_id=?";
 
     public static String sell = "UPDATE stock_account SET stk_quantity=? WHERE stk_name=? AND acc_id=?";
 
     //History Queries
-    public static String history = "SELECT trade_id AS _id, trade_date, trade_type, trade_stk_quantity, stock_name FROM trade, trade_detail, master_stock WHERE trade.trade_id=trade_detail.trade_id AND trade_detail.stock_id=master_stock.stock_id";
+    public static String history = "SELECT trade.trade_id AS _id, trade_date, trade_type, trade_stk_quantity, stock_name FROM trade, trade_detail, master_stock WHERE trade.trade_id=trade_detail.trade_id AND trade_detail.stock_id=master_stock.stock_id";
+
     //HotDeals Queries
     public static String showhotbuylist = "SELECT POST.post_id as _id, user_first_name, user_last_name, user_phone, post_title, post_desc FROM POST, USER WHERE USER.user_id==POST.user_id AND USER.user_id!=? ORDER BY post_hit_counter desc";
     public static String query_spinner_hot = "SELECT POST.post_id as _id, user_first_name, user_last_name, user_phone, post_title, post_desc FROM POST, USER, ITEM WHERE USER.user_id==POST.user_id AND POST.post_id=ITEM.post_id AND USER.user_id!=? AND ITEM.cat_id=? ORDER BY post_hit_counter desc";

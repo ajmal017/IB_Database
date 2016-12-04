@@ -53,7 +53,7 @@ public class EventRegistation extends AppCompatActivity implements View.OnClickL
         update_button = (Button) this.findViewById(R.id.update_event_btn);
         report_button = (Button) this.findViewById(R.id.event_attendance_btn);
 
-        String [] value = new String[1];
+        /*String [] value = new String[1];
         value[0] = LoginActivity.user_id;
         int count;
 
@@ -68,7 +68,7 @@ public class EventRegistation extends AppCompatActivity implements View.OnClickL
         {
             update_button.setVisibility(View.VISIBLE);
             report_button.setVisibility(View.VISIBLE);
-        }
+        }*/
 
     }
 

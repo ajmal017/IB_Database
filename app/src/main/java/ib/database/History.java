@@ -35,8 +35,8 @@ public class History extends AppCompatActivity implements View.OnClickListener {
 
         String[] value= new String[1];
         value[0]= LoginActivity.user_id;
-        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.mypostlist, value);
-        String[] from = new String[]{"stock_name","stock_price"};
+        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.history);
+        String[] from = new String[]{"trade_date", "trade_type", "trade_stk_quantity", "stock_name" };
         int[] to = new int[]{R.id.Buystock_name, R.id.stock_price};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(

@@ -32,9 +32,11 @@ import ib.database.R;
 public class PieChartActivity extends DemoBase implements OnChartValueSelectedListener {
 
     private PieChart mChart;
-    public String event_id,event_title1;
-    private int usercount;
-    private int rsvpcount;
+    public String tradeDate;
+    public int tradeType;
+    public String stlkName;
+    private int tradeStlkQuantity;
+
     //private SeekBar mSeekBarX, mSeekBarY;
     //private TextView tvX, tvY;
 
@@ -108,12 +110,9 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
         l.setYOffset(0f);
 
         Intent intent = this.getIntent();
-        event_id = intent.getStringExtra("event_id");
-        event_title1 = intent.getStringExtra("event_title");
-        System.out.println(event_title1);
-        usercount = intent.getIntExtra("usercount",0);
-        rsvpcount = intent.getIntExtra("rsvpcount",0);
-        setData(1,rsvpcount);
+        tradeType = intent.getIntExtra("tradeType",0);
+        tradeStlkQuantity = intent.getIntExtra("tradeStlkQuantity",0);
+        setData(2,tradeStlkQuantity);
     }
 
    /* @Override
@@ -200,19 +199,19 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
         // drawn above each other.
 
         for (int i = 0; i < count + 1; i++) {
-            yVals1.add(new Entry(mult, i));
-            System.out.println("yvals1="+mult);
-            mult=usercount-mult;
+//            yVals1.add(mult, i);
+
+//            mult=usercount-mult;
         }
 
         //yVals1.add(1);
 
         ArrayList<String> xVals = new ArrayList<String>();
 
-        xVals.add("Yes");
-        xVals.add("No");
+        xVals.add("Bought");
+        xVals.add("Sold");
 
-        PieDataSet dataSet = new PieDataSet(yVals1, "RSVP Selection");
+        PieDataSet dataSet = new PieDataSet(yVals1, "Stock Selection");
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
 
@@ -255,9 +254,9 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
 
     private SpannableString generateCenterSpannableText() {
         
-        SpannableString s = new SpannableString("Event Registration");
+        SpannableString s = new SpannableString("Stock Portfolio Analysis");
         /*SpannableString s = new SpannableString("MPAndroidChart\ndeveloped by Philipp Jahoda");*/
-        s.setSpan(new RelativeSizeSpan(1.7f), 0, 18, 0);
+        s.setSpan(new RelativeSizeSpan(1.7f), 0, 24, 0);
         /*s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 15, 0);
         s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
         s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);

@@ -11,7 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import java.util.Date;
+
 import ib.database.constant.SQLCommand;
+import ib.database.mppiechart.PieChartActivity;
 import ib.database.util.DBOperator;
 
 /**
@@ -29,9 +32,9 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_test);
         overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
-        try{
+        try {
             DBOperator.copyDB(getBaseContext());
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -39,7 +42,7 @@ public class DashboardActivity extends AppCompatActivity {
 //        listView.setOnItemClickListener(new ItemClickListener());
 
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.recent_trades, null);
-        String[] from = new String[]{"stk_name","trade_date"};
+        String[] from = new String[]{"stk_name", "trade_date"};
         int[] to = new int[]{R.id.stock_name, R.id.trade_date};
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
@@ -48,17 +51,16 @@ public class DashboardActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        String[] value= new String[1];
+        String[] value = new String[1];
         value[0] = LoginActivity.user_id;
         Cursor cursor1 = DBOperator.getInstance().execQuery(SQLCommand.getname, value);
         StringArray stringArray = new StringArray();
         String username[][] = stringArray.toStr(cursor1);
-        setTitle("Welcome "+username[0][0]);
+        setTitle("Welcome " + username[0][0]);
     }
 
 
-
-//    private class ItemClickListener implements android.widget.AdapterView.OnItemClickListener {
+    //    private class ItemClickListener implements android.widget.AdapterView.OnItemClickListener {
 //        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 //        @Override
 //        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,12 +81,10 @@ public class DashboardActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        }
 //    }
-    public void onClick(View view)
-    {
+    public void onClick(View view) {
         //String sql="";
-        int id=view.getId();
-        if (id==R.id.buy_button)
-        {
+        int id = view.getId();
+        if (id == R.id.buy_button) {
 
             //sql = SQLCommand.QUERY_1;
             Intent intent = new Intent(getApplicationContext(), ShowBuyListActivity.class);
@@ -93,8 +93,7 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(intent);
 
         }
-        if(id==R.id.sell_button)
-        {
+        if (id == R.id.sell_button) {
             Intent intent = new Intent(getApplicationContext(), ShowSellList.class);
             this.startActivity(intent);
         }
@@ -108,20 +107,33 @@ public class DashboardActivity extends AppCompatActivity {
             Intent intent = new Intent(this, NewDeals1.class);
             this.startActivity(intent);
         }*/
-        if(view.getId()==R.id.wish_button){
+        if (view.getId() == R.id.wish_button) {
             Intent intent = new Intent(this, Favorite.class);
             this.startActivity(intent);
 
         }
-        if(view.getId()==R.id.history){
-            Intent intent = new Intent(this, History.class);
+        if (view.getId() == R.id.history) {
+            String count1 = SQLCommand.history;
+            Cursor cursor1 = DBOperator.getInstance().execQuery(count1);
+            StringArray stringArray1 = new StringArray();
+            String ars1[][] = stringArray1.toStr(cursor1);
+            String tradeDate = (ars1[0][1]);
+            String tradeType = ars1[0][2];
+            Integer tradeStlkQuantity = Integer.parseInt(ars1[0][3]);
+            String stlkName = ars1[0][4];
+
+            Intent intent = new Intent(this, PieChartActivity.class);
+            intent.putExtra("tradeDate", tradeDate);
+            intent.putExtra("tradeType", tradeType);
+            intent.putExtra("tradeStlkQuantity", tradeStlkQuantity);
+            intent.putExtra("stlkName", stlkName);
             this.startActivity(intent);
         }
-        if(view.getId()==R.id.prof_button){
-            Intent it = new Intent(this,ProfilePage.class);
+        if (view.getId() == R.id.prof_button) {
+            Intent it = new Intent(this, ProfilePage.class);
             startActivity(it);
         }
-        if(view.getId()==R.id.logout_button){
+        if (view.getId() == R.id.logout_button) {
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             this.startActivity(intent);
@@ -139,8 +151,6 @@ public class DashboardActivity extends AppCompatActivity {
         this.startActivity(intent);
         finish();
     }
-
-
 
 
 }
