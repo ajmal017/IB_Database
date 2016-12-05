@@ -20,12 +20,14 @@ import com.github.mikephil.charting.components.Legend.LegendPosition;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.*;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import ib.database.R;
 
@@ -110,9 +112,11 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
         l.setYOffset(0f);
 
         Intent intent = this.getIntent();
-        tradeType = intent.getIntExtra("tradeType",0);
+        tradeType = intent.getIntExtra("tradeType", 1);
+        Random randomVal = new Random();
+
         tradeStlkQuantity = intent.getIntExtra("tradeStlkQuantity",0);
-        setData(2,tradeStlkQuantity);
+        setData(1, 100);
     }
 
    /* @Override
@@ -194,13 +198,16 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
 
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
+
         // IMPORTANT: In a PieChart, no values (Entry) should have the same
         // xIndex (even if from different DataSets), since no values can be
         // drawn above each other.
 
         for (int i = 0; i < count + 1; i++) {
-//            yVals1.add(mult, i);
+            yVals1.add(new Entry(mult, i));
+            Random rand = new Random();
 
+            mult = rand.nextInt(50) + 1;
 //            mult=usercount-mult;
         }
 
@@ -253,7 +260,7 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
     }
 
     private SpannableString generateCenterSpannableText() {
-        
+
         SpannableString s = new SpannableString("Stock Portfolio Analysis");
         /*SpannableString s = new SpannableString("MPAndroidChart\ndeveloped by Philipp Jahoda");*/
         s.setSpan(new RelativeSizeSpan(1.7f), 0, 24, 0);
@@ -281,19 +288,19 @@ public class PieChartActivity extends DemoBase implements OnChartValueSelectedLi
         Log.i("PieChart", "nothing selected");
     }
 
-   /* @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
+    /* @Override
+     public void onStartTrackingTouch(SeekBar seekBar) {
+         // TODO Auto-generated method stub
 
+     }
+
+     @Override
+     public void onStopTrackingTouch(SeekBar seekBar) {
+         // TODO Auto-generated method stub
+
+     }*/
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
     }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
-
-    }*/
-   public void onBackPressed() {
-       super.onBackPressed();
-       overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
-   }
 }

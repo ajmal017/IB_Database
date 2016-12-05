@@ -122,25 +122,29 @@ public class DashboardActivity extends AppCompatActivity {
             Integer tradeStlkQuantity = Integer.parseInt(ars1[0][3]);
             String stlkName = ars1[0][4];
 
-            Intent intent = new Intent(this, PieChartActivity.class);
-            intent.putExtra("tradeDate", tradeDate);
-            intent.putExtra("tradeType", tradeType);
-            intent.putExtra("tradeStlkQuantity", tradeStlkQuantity);
-            intent.putExtra("stlkName", stlkName);
-            this.startActivity(intent);
-        }
-        if (view.getId() == R.id.prof_button) {
-            Intent it = new Intent(this, ProfilePage.class);
-            startActivity(it);
-        }
-        if (view.getId() == R.id.logout_button) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            this.startActivity(intent);
-            finish();
-        }
+            Integer tradeTypeNumber = 0;
+            if (tradeType == "buy") { tradeTypeNumber = 1;}
+            if (tradeType == "sell") { tradeTypeNumber = 0;}
 
-    }
+            Intent intent = new Intent(this, PieChartActivity.class);
+                intent.putExtra("tradeDate", tradeDate);
+                intent.putExtra("tradeType", tradeTypeNumber);
+                intent.putExtra("tradeStlkQuantity", tradeStlkQuantity);
+                intent.putExtra("stlkName", stlkName);
+                this.startActivity(intent);
+            }
+            if (view.getId() == R.id.prof_button) {
+                Intent it = new Intent(this, ProfilePage.class);
+                startActivity(it);
+            }
+            if (view.getId() == R.id.logout_button) {
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                this.startActivity(intent);
+                finish();
+            }
+
+        }
 
     public void onBackPressed() {
         Intent intent = new Intent(this, LoginActivity.class);
