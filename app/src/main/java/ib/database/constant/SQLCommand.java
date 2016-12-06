@@ -130,7 +130,7 @@ public abstract class SQLCommand
     //showstockdetail
     public static String getpostdetails = "SELECT POST.post_id AS _id, post_title, post_desc FROM POST where post_id = ?";
     public static String getuserid = "SELECT user_id FROM POST where post_id = ?";
-    public static String deleteitem = "DELETE FROM ITEM where item_id = ?";
+    public static String deleteitem = "DELETE FROM WISHLISTDETAILS where wd_id = ?";
 
 
     //UpdateItemDetails

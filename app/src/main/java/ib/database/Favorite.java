@@ -1,13 +1,18 @@
 package ib.database;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import ib.database.constant.SQLCommand;
 import ib.database.util.DBOperator;
@@ -59,10 +64,55 @@ public class Favorite extends AppCompatActivity {
             Cursor cursor = (Cursor) listView.getItemAtPosition(position);
             String item_id = cursor.getString(0);
 
-            String value [] = new String[1];
-            value [0] = item_id;
 
-            Cursor cursor1 = DBOperator.getInstance().execQuery(SQLCommand.getposterdetails,value);
+            String value[] = new String[1];
+            value[0] = item_id;
+
+            UpdatePost(value[0]);
+//            DBOperator.getInstance().execSQL(SQLCommand.deleteitem, value);
+        }}
+        private void UpdatePost(final String item_id) {
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        final AlertDialog dialog;
+        LayoutInflater inflater = (LayoutInflater)
+                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View v2 = inflater.inflate(R.layout.update_item,null);
+
+        alert.setView(v2);
+        alert.setPositiveButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.dismiss();
+                        /*Intent intent = new Intent(getApplicationContext(), UpdateItemDetails.class);
+                        intent.putExtra("item_id", item_id);
+                        startActivity(intent);
+                        finish();*/
+                    }
+                });
+
+        alert.setNegativeButton("Delete",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String value[] = new String[1];
+                        value[0] = item_id;
+                        DBOperator.getInstance().execSQL(SQLCommand.deleteitem, value);
+
+                        Toast.makeText(Favorite.this, "Item has been deleted", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                        startActivity(intent);
+                        //Cursor cursor1 = DBOperator.getInstance().execQuery(SQLCommand.deleteitem, value);
+                        //DBOperator.getInstance();
+                        //Toast.makeText(showstockdetail.this, item_id+"has been deleted", Toast.LENGTH_SHORT).show();
+                   }
+
+                });
+        dialog = alert.create();
+        dialog.show();
+    }
+
+            /*Cursor cursor1 = DBOperator.getInstance().execQuery(SQLCommand.deleteitem,value);
             StringArray stringArray1 = new StringArray();
             String ars1[][]= stringArray1.toStr(cursor1);
             String post_id = ars1 [0][0];
@@ -84,7 +134,7 @@ public class Favorite extends AppCompatActivity {
             startActivity(intent);
 
         }
-    }
+    }*/
 
     public void onBackPressed() {
         super.onBackPressed();
