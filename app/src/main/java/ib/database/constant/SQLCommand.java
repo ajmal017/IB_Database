@@ -79,12 +79,17 @@ public abstract class SQLCommand
     //ShowSellList Queries
     public static String showselllist = "select master_stock.stock_id as _id, stock_name, stock_price, stk_quantity, industry_type, related_market, stock_description from stock_account,master_stock,trade,trade_detail,account,business_partner where stock_account.stk_acc_id=trade.stk_acc_id and trade.trade_id=trade_detail.trade_id and trade_detail.stock_id=master_stock.stock_id and stock_account.acc_id=account.acc_id and account.bp_id=business_partner.bp_id and business_partner.bp_id=?";
     public static String sellquery_spinner = "select master_stock.stock_id as _id, stock_name, stock_price, stk_quantity, industry_type, related_market, stock_description from stock_account,master_stock,trade,trade_detail,account,business_partner where stock_account.stk_acc_id=trade.stk_acc_id and trade.trade_id=trade_detail.trade_id and trade_detail.stock_id=master_stock.stock_id and stock_account.acc_id=account.acc_id and account.bp_id=business_partner.bp_id and business_partner.bp_id=? and related_market=?";
+//<<<<<<< Updated upstream
     public static String callMgr = "Select m_id as _id, m_phone FROM manager where bp_id=?";
 
+//=======
+    public static String showCash = "Select total_amount from cash_account, account, business_partner where cash_account.acc_id=account.acc_id And account.bp_id=business_partner.bp_id And business_partner.bp_id=?";
+//>>>>>>> Stashed changes
     //ShowStockDetail Queries
     public static String buy = "UPDATE stock_account SET stk_quantity=? WHERE stk_name=? AND acc_id=?";
 
     public static String sell = "UPDATE stock_account SET stk_quantity=? WHERE stk_name=? AND acc_id=?";
+    public static String addwishlist = "INSERT INTO WISHLISTDETAILS (wd_id,bp_id,stock_id) VALUES (1,2,1)";
 
     //History Queries
     public static String history = "SELECT trade.trade_id AS _id, trade_date, trade_type, trade_stk_quantity, stock_name FROM trade, trade_detail, master_stock WHERE trade.trade_id=trade_detail.trade_id AND trade_detail.stock_id=master_stock.stock_id";
@@ -99,7 +104,7 @@ public abstract class SQLCommand
 
 
     //ProfilePage Queries
-    public static String showprofile = "SELECT bp_first_name, bp_last_name,bp_pass,bp_email, bp_birthdate FROM business_partner WHERE bp_id=?";
+    public static String showprofile = "SELECT bp_first_name, bp_last_name,bp_pass,bp_email, bp_birthdate, established_date FROM business_partner, account WHERE business_partner.bp_id=account.bp_id AND business_partner.bp_id=?";
     public static String updateprofile = "UPDATE business_partner SET bp_first_name=?, bp_last_name=?,bp_email=?,bp_pass=?, bp_birthdate=? WHERE bp_id=?";
 
     //Favorite Queries

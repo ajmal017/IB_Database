@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ib.database.constant.SQLCommand;
@@ -23,6 +24,8 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
     private EditText profile_DOB;
     private EditText profile_pass;
     private Button update;
+    private TextView establishDate;
+    private TextView getdate;
 
     protected void onCreate(Bundle savedInstanceState) {
         System.gc();
@@ -38,6 +41,8 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         profile_email=(EditText) this.findViewById(R.id.profile_email);
         profile_DOB =(EditText) this.findViewById(R.id.profile_DOB);
         profile_pass=(EditText) this.findViewById(R.id.profile_pass);
+//        establishDate=(TextView) this.findViewById(R.id.establishDate);
+        getdate=(TextView) this.findViewById(R.id.getdate);
 
         String [] value= new String[1];
         value[0]=LoginActivity.user_id;
@@ -52,11 +57,14 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         String pass=ars[0][2];
         String email=ars[0][3];
         String DOB=ars[0][4];
+        String Date=ars[0][5];
         profile_firstname.setText(first_name);
         profile_lastname.setText(last_name);
         profile_pass.setText(pass);
         profile_email.setText(email);
         profile_DOB.setText(DOB);
+        getdate.setText(Date);
+
 
         update = (Button) this.findViewById(R.id.update_btn);
         update.setOnClickListener(this);

@@ -53,6 +53,16 @@ public class showStockDetail extends AppCompatActivity
         Updatebtn = (Button) this.findViewById(R.id.button2);
         AddtoWishBtn = (Button) this.findViewById(R.id.button3);
 
+        AddtoWishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Add to favorite", Toast.LENGTH_SHORT).show();
+                String sql=SQLCommand.addwishlist;
+
+                DBOperator.getInstance().execSQL(sql);
+
+            }
+        });
 
         Intent intent = this.getIntent();
         stock_name = intent.getStringExtra("stock_name");
@@ -83,7 +93,7 @@ public class showStockDetail extends AppCompatActivity
 
         if (ShowBuyListActivity.BLFlag == 1) {
             //UpdatePost(view, item_id);
-//            AddtoWishlistDialog(item_id);
+//            AddtoWishlistDialog(stock_id);
             ShowBuyListActivity.BLFlag = 0;
             ShowSellList.BLFlag=0;
             AddtoWishBtn.setVisibility(View.VISIBLE);
@@ -96,9 +106,20 @@ public class showStockDetail extends AppCompatActivity
     }
 
 
+    public void onClick(View view) {
+        //String sql="";
+        int id = view.getId();
+        if (id == R.id.button3) {
+
+            Toast.makeText(getApplicationContext(),"Add to favorite", Toast.LENGTH_SHORT).show();
+            String sql=SQLCommand.addwishlist;
+
+            DBOperator.getInstance().execSQL(sql);
 
 
-    public void onClick(View v) {
+        }
+    }
+   /* public void onClick(View v) {
         int id=v.getId();
         if(id==R.id.button2)
         {
@@ -113,7 +134,7 @@ public class showStockDetail extends AppCompatActivity
         }
         else if (id==R.id.button3){}
     }
-
+*/
 
 
 
@@ -156,12 +177,12 @@ public class showStockDetail extends AppCompatActivity
 //    private class ItemClickListener implements AdapterView.OnItemClickListener {
 //        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //            Cursor cursor = (Cursor) listView.getItemAtPosition(position);
-//            String item_id = cursor.getString(0);
-//            String item_name1 = cursor.getString(1);
-//            item_name = item_name1;
+//            String stock_id = cursor.getString(0);
+//            String stock_name1 = cursor.getString(1);
+//            stock_name = stock_name1;
 //            /*int count1,count2;
 //            String [] value = new String[1];
-//            value[0] = item_id;
+//            value[0] = stock_id;
 //
 //            String getwdid= SQLCommand.getwdid;
 //            Cursor cursor3 = DBOperator.getInstance().execQuery(getwdid);
@@ -190,9 +211,9 @@ public class showStockDetail extends AppCompatActivity
 //                Toast.makeText(showStockDetail.this, item_name + "already exists in your favorite", Toast.LENGTH_SHORT).show();
 //            }
 //           /* String getwishid= SQLCommand.getwishid;
-//            String userid[] = new String[1];
-//            userid[0] = LoginActivity.user_id;
-//            Cursor cursor2 = DBOperator.getInstance().execQuery(getwishid,userid);
+//            String bp_id[] = new String[1];
+//            userid[0] = LoginActivity.bp_id;
+//            Cursor cursor2 = DBOperator.getInstance().execQuery(getwishid,bp_id);
 //            StringArray stringArray2 = new StringArray();
 //            String ars2[][]= stringArray2.toStr(cursor2);
 //            count2=Integer.parseInt(ars2[0][0]);*/

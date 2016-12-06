@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,7 +32,12 @@ import static ib.database.ShowBuyListActivity.stockID;
 public class ShowSellList extends AppCompatActivity {
     private ListView listView;
     private Spinner spinner;
+    //<<<<<<< Updated upstream
     private Button callMgr;
+    //=======
+    private TextView cashAmount;
+
+    //>>>>>>> Stashed changes
     public static int BLFlag = 0;
     public static String postId;
 
@@ -47,6 +53,7 @@ public class ShowSellList extends AppCompatActivity {
 
         listView = (ListView) this.findViewById(R.id.sell_list);
         listView.setOnItemClickListener(new ItemClickListener());
+//<<<<<<< Updated upstream
         callMgr = (Button) this.findViewById(R.id.callMngrbtn);
         callMgr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,17 +75,40 @@ public class ShowSellList extends AppCompatActivity {
             }
         });
 
+//=======
+        cashAmount = (TextView) this.findViewById(R.id.cashAmount);
+//>>>>>>> Stashed changes
 //        listView.setVerticalScrollBarEnabled();
 
         // get the sql string delivered from the QueryActivity
         //Intent intent = this.getIntent();
         //String sql = intent.getStringExtra("sql");
         // execute the sql
+//<<<<<<< Updated upstream
+//        String[] value = new String[1];
+//        value[0] = LoginActivity.user_id;
+//        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showselllist, value);
+//        String[] from = new String[]{"stock_name", "stock_price", "stk_quantity"};
+//        int[] to = new int[]{R.id.Sellstock_name, R.id.sellstock_price, R.id.stock_quantity};
+//=======
         String[] value = new String[1];
         value[0] = LoginActivity.user_id;
+        //
+        Cursor cursor1 = DBOperator.getInstance().execQuery(SQLCommand.showCash, value);
+        StringArray stringArray = new StringArray();
+        String ars[][] = stringArray.toStr(cursor1);
+        int cash = Integer.parseInt(ars[0][0]);
+
+
+//        Intent intent = this.getIntent();
+//        cashAmount = intent.getStringExtra("total_amount");
+        cashAmount.setText((String.valueOf(cash)));
+
+        //
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.showselllist, value);
-        String[] from = new String[]{"stock_name", "stock_price", "stk_quantity"};
+        String[] from = new String[]{"stock_name", "stock_price", "stk_quantity",};
         int[] to = new int[]{R.id.Sellstock_name, R.id.sellstock_price, R.id.stock_quantity};
+//>>>>>>> Stashed changes
         // bind the data to list
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getApplicationContext(), R.layout.sell_listview, cursor,
